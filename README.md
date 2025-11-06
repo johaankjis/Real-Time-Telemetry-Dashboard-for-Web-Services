@@ -167,8 +167,8 @@ const { data, isUpdating } = useTelemetryData(5000) // 5000ms = 5 seconds
 ```
 
 ### Adding New Metrics
-1. Update the `TelemetryData` interface in `hooks/use-telemetry-data.ts`
-2. Add metric generation logic in the `updateData` function
+1. Update the `TelemetryData` interface at the top of `hooks/use-telemetry-data.ts`
+2. Add metric generation logic in the `updateData` function (around line 103)
 3. Create or update components to display the new metrics
 
 ### Theming
@@ -205,14 +205,31 @@ interface TelemetryData {
     errorRate: number
   }
   systemStatus: "operational" | "degraded" | "down"
-  activities: Activity[]
-  performanceData: PerformanceDataPoint[]
-  timelineData: TimelineDataPoint[]
+  activities: Array<{
+    id: string
+    type: "info" | "warning" | "error" | "success"
+    message: string
+    timestamp: string
+  }>
+  performanceData: Array<{
+    time: string
+    cpu: number
+    memory: number
+    network: number
+  }>
+  timelineData: Array<{
+    time: string
+    responseTime: number
+    errorRate: number
+    throughput: number
+    cpu: number
+    memory: number
+  }>
   lastUpdated: Date
 }
 ```
 
-See `lib/types.ts` for complete type definitions.
+See `hooks/use-telemetry-data.ts` and `lib/types.ts` for complete type definitions.
 
 ## 🤝 Contributing
 

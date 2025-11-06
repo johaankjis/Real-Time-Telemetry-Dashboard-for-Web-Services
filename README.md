@@ -313,7 +313,7 @@ Customize theme, colors, and plugins in `tailwind.config.ts`.
 ## 🎨 Customization
 
 ### Adding New Metrics
-1. Update `TelemetryData` interface in `hooks/use-telemetry-data.ts`
+1. Update the data structure in `useTelemetryData` hook (`hooks/use-telemetry-data.ts`)
 2. Add metric card in `app/page.tsx`
 3. Update mock data generation if needed
 

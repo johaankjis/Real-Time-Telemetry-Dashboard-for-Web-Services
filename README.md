@@ -1,389 +1,283 @@
 # Real-Time Telemetry Dashboard for Web Services
 
-A modern, real-time telemetry dashboard built with Next.js for monitoring web services performance, health, and metrics. This application provides comprehensive insights into system behavior with live updates, interactive visualizations, and alert management.
+A modern, real-time telemetry and monitoring dashboard built with Next.js 16, React 19, and TypeScript. This dashboard provides comprehensive insights into web service performance, health metrics, and system analytics with a beautiful, responsive UI.
 
-![Dashboard Preview](https://img.shields.io/badge/Next.js-16.0.0-black?style=flat&logo=next.js)
-![React](https://img.shields.io/badge/React-19.2.0-blue?style=flat&logo=react)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat&logo=typescript)
-![License](https://img.shields.io/badge/license-MIT-green)
+## ✨ Features
 
-## 🌟 Features
+### Real-Time Monitoring
+- **Live Metrics**: Track active users, requests per minute, response times, and error rates in real-time
+- **System Status**: Monitor overall system health with operational, degraded, and down states
+- **Auto-Refresh**: Configurable automatic data refresh intervals (default: 5 seconds)
 
-### Core Features
-- **Real-Time Monitoring**: Live telemetry data updates every 5 seconds
-- **Service Health Tracking**: Monitor multiple microservices simultaneously
-- **Performance Metrics**: Track CPU, memory, network, and response times
-- **Error Tracking**: Real-time error rate monitoring with detailed insights
-- **Alert Management**: Configurable alerts with severity levels (critical, warning, info)
-- **Activity Feed**: Live stream of system events and notifications
-- **Interactive Charts**: Beautiful visualizations using Recharts
-- **Responsive Design**: Fully responsive UI built with Tailwind CSS
+### Comprehensive Visualizations
+- **Performance Charts**: Multi-metric charts displaying CPU, memory, and network utilization
+- **System Timeline**: 24-hour performance timeline with response time, throughput, and resource metrics
+- **Activity Feed**: Real-time feed of system events, warnings, and errors
+- **Metric Cards**: At-a-glance view of key performance indicators with trend indicators
 
-### Dashboard Components
-- **System Status Indicator**: Visual representation of overall system health
-- **Metric Cards**: Quick overview of key performance indicators
-  - Active Users
-  - Requests per Minute
-  - Average Response Time
-  - Error Rate
-- **System Performance Timeline**: 24-hour historical performance data
-- **Performance Charts**: Multi-metric visualization (CPU, Memory, Network)
-- **Activity Feed**: Real-time event logging and notifications
+### Alert Management
+- **Configurable Alerts**: Set up custom alert rules with thresholds
+- **Multiple Severity Levels**: Critical, warning, and info severity classifications
+- **Alert Dashboard**: Dedicated page for managing and monitoring alerts
+- **Enable/Disable Controls**: Quick toggle for individual alert rules
 
-## 🚀 Tech Stack
+### Modern UI/UX
+- **Responsive Design**: Fully responsive layout optimized for desktop and mobile devices
+- **Dark Mode Ready**: Built with theme support using next-themes
+- **Accessibility**: ARIA-compliant components using Radix UI primitives
+- **Beautiful Animations**: Smooth transitions and loading states
+
+## 🚀 Technology Stack
 
 ### Frontend
-- **Framework**: [Next.js 16.0.0](https://nextjs.org/) with React 19.2.0
-- **Language**: TypeScript 5
-- **Styling**: Tailwind CSS 4.1.9
-- **UI Components**: Radix UI primitives
-- **Charts**: Recharts
-- **Icons**: Lucide React
-- **Form Handling**: React Hook Form with Zod validation
-- **Date Utilities**: date-fns
+- **[Next.js 16](https://nextjs.org/)**: React framework with App Router
+- **[React 19.2](https://react.dev/)**: Latest React with enhanced features
+- **[TypeScript](https://www.typescriptlang.org/)**: Type-safe development
+- **[Tailwind CSS 4.1](https://tailwindcss.com/)**: Utility-first CSS framework
+- **[Recharts](https://recharts.org/)**: Composable charting library
 
-### Backend/API
-- **API Routes**: Next.js API routes for RESTful endpoints
-- **Data Storage**: In-memory storage (mock data for demonstration)
-- **Real-time Updates**: Client-side polling with custom hooks
+### UI Components
+- **[Radix UI](https://www.radix-ui.com/)**: Accessible component primitives
+- **[Lucide React](https://lucide.dev/)**: Beautiful icon library
+- **[shadcn/ui](https://ui.shadcn.com/)**: Re-usable component collection
+- **[Sonner](https://sonner.emilkowal.ski/)**: Toast notifications
+- **[Vaul](https://vaul.emilkowal.ski/)**: Drawer component
 
 ### Development Tools
-- **Package Manager**: npm/pnpm
-- **Linting**: ESLint
-- **Build Tool**: Next.js built-in tooling
+- **[pnpm](https://pnpm.io/)**: Fast, disk space efficient package manager
+- **[ESLint](https://eslint.org/)**: Code linting and quality checks
+- **[PostCSS](https://postcss.org/)**: CSS transformations
+
+### Analytics
+- **[Vercel Analytics](https://vercel.com/analytics)**: Real-time analytics and insights
+
+## 📦 Installation
+
+### Prerequisites
+- Node.js 18.x or higher
+- pnpm (recommended) or npm
+
+### Setup
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/johaankjis/Real-Time-Telemetry-Dashboard-for-Web-Services.git
+cd Real-Time-Telemetry-Dashboard-for-Web-Services
+```
+
+2. **Install dependencies**
+```bash
+pnpm install
+# or
+npm install
+```
+
+3. **Run the development server**
+```bash
+pnpm dev
+# or
+npm run dev
+```
+
+4. **Open your browser**
+Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🛠️ Available Scripts
+
+- `pnpm dev` - Start the development server
+- `pnpm build` - Build the production application
+- `pnpm start` - Start the production server
+- `pnpm lint` - Run ESLint for code quality checks
 
 ## 📁 Project Structure
 
 ```
 Real-Time-Telemetry-Dashboard-for-Web-Services/
-├── app/                          # Next.js app directory
-│   ├── api/                      # API routes
-│   │   ├── alerts/              # Alert management endpoints
-│   │   ├── services/            # Service health endpoints
-│   │   └── telemetry/           # Telemetry data endpoints
-│   │       ├── route.ts         # Main telemetry API (GET/POST)
-│   │       ├── stats/           # Statistics aggregation
-│   │       ├── timeseries/      # Time-series data
-│   │       └── simulate/        # Mock data simulation
-│   ├── globals.css              # Global styles
-│   ├── layout.tsx               # Root layout
-│   └── page.tsx                 # Dashboard page
-├── components/                   # React components
-│   ├── activity-feed.tsx        # Activity log component
-│   ├── alert-indicator.tsx      # Alert status display
-│   ├── alert-panel.tsx          # Alert management panel
-│   ├── error-chart.tsx          # Error rate visualization
-│   ├── latency-chart.tsx        # Latency metrics chart
-│   ├── metric-card.tsx          # Metric display card
-│   ├── performance-chart.tsx    # Performance visualization
-│   ├── request-chart.tsx        # Request metrics chart
-│   ├── service-status.tsx       # Service health status
-│   ├── stat-card.tsx            # Statistics card
-│   ├── status-indicator.tsx     # System status indicator
+├── app/                        # Next.js app directory
+│   ├── alerts/                 # Alert management page
+│   ├── api/                    # API routes
+│   │   ├── alerts/            # Alert endpoints
+│   │   ├── services/          # Service endpoints
+│   │   └── telemetry/         # Telemetry endpoints
+│   ├── layout.tsx             # Root layout component
+│   ├── page.tsx               # Main dashboard page
+│   └── globals.css            # Global styles
+├── components/                 # React components
+│   ├── ui/                    # shadcn/ui components
+│   ├── activity-feed.tsx      # Activity feed component
+│   ├── alert-indicator.tsx    # Alert status indicator
+│   ├── alert-panel.tsx        # Alert configuration panel
+│   ├── error-chart.tsx        # Error visualization chart
+│   ├── latency-chart.tsx      # Latency metrics chart
+│   ├── metric-card.tsx        # Metric display card
+│   ├── performance-chart.tsx  # Performance metrics chart
+│   ├── request-chart.tsx      # Request visualization chart
+│   ├── service-status.tsx     # Service health status
+│   ├── stat-card.tsx          # Statistics card
+│   ├── status-indicator.tsx   # System status indicator
 │   ├── system-performance-timeline.tsx  # Timeline chart
-│   ├── theme-provider.tsx       # Theme context provider
-│   └── ui/                      # Reusable UI components (Radix UI)
-├── hooks/                        # Custom React hooks
-│   ├── use-mobile.ts            # Mobile detection hook
-│   ├── use-telemetry-data.ts    # Telemetry data management
-│   └── use-toast.ts             # Toast notification hook
-├── lib/                          # Utility libraries
-│   ├── mock-data.ts             # Mock data generation
-│   ├── types.ts                 # TypeScript type definitions
-│   └── utils.ts                 # Utility functions
-├── public/                       # Static assets
-├── styles/                       # Additional styles
-├── components.json               # shadcn/ui configuration
-├── next.config.mjs              # Next.js configuration
-├── package.json                 # Project dependencies
-├── postcss.config.mjs           # PostCSS configuration
-├── tailwind.config.ts           # Tailwind CSS configuration
-└── tsconfig.json                # TypeScript configuration
+│   └── theme-provider.tsx     # Theme context provider
+├── hooks/                      # Custom React hooks
+│   ├── use-mobile.ts          # Mobile detection hook
+│   ├── use-telemetry-data.ts  # Telemetry data management hook
+│   └── use-toast.ts           # Toast notification hook
+├── lib/                        # Utility functions and types
+│   ├── mock-data.ts           # Mock data generators
+│   ├── types.ts               # TypeScript type definitions
+│   └── utils.ts               # Utility functions
+├── public/                     # Static assets
+├── styles/                     # Additional styles
+├── components.json             # shadcn/ui configuration
+├── next.config.mjs            # Next.js configuration
+├── package.json               # Project dependencies
+├── postcss.config.mjs         # PostCSS configuration
+├── tailwind.config.ts         # Tailwind CSS configuration
+└── tsconfig.json              # TypeScript configuration
 ```
 
-## 🛠️ Getting Started
+## 🎯 Key Components
 
-### Prerequisites
-- Node.js 18.x or higher
-- npm, pnpm, or yarn
+### useTelemetryData Hook
+A custom React hook that manages real-time telemetry data:
+- Generates realistic simulated metrics
+- Auto-updates at configurable intervals
+- Provides loading states and data freshness indicators
 
-### Installation
+### Dashboard Page
+The main dashboard displays:
+- System health status indicator
+- Four key metric cards (Active Users, Requests/min, Response Time, Error Rate)
+- 24-hour system performance timeline
+- Multi-metric performance charts
+- Real-time activity feed
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/johaankjis/Real-Time-Telemetry-Dashboard-for-Web-Services.git
-   cd Real-Time-Telemetry-Dashboard-for-Web-Services
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   pnpm install
-   # or
-   yarn install
-   ```
-
-3. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   pnpm dev
-   # or
-   yarn dev
-   ```
-
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the dashboard.
-
-### Build for Production
-
-```bash
-npm run build
-npm start
-```
-
-## 📊 Usage
-
-### Dashboard Overview
-The main dashboard (`/`) displays:
-- **System Status**: Overall health indicator (Operational, Degraded, Down)
-- **Key Metrics**: Active users, request rate, response time, error rate
-- **Performance Timeline**: 24-hour historical data visualization
-- **Live Activity Feed**: Real-time system events and notifications
-- **Performance Charts**: CPU, Memory, and Network utilization
-
-### Data Updates
-- Dashboard automatically refreshes every 5 seconds
-- Visual indicator shows when data is updating
-- Last update timestamp displayed in the header
-
-## 🔌 API Endpoints
-
-### Telemetry Endpoints
-
-#### POST `/api/telemetry`
-Ingest new telemetry data.
-
-**Request Body:**
-```json
-{
-  "service_name": "api-gateway",
-  "endpoint": "/api/users",
-  "method": "GET",
-  "status_code": 200,
-  "latency_ms": 245,
-  "error_message": null
-}
-```
-
-**Response:**
-```json
-{
-  "success": true,
-  "metric": {
-    "id": "1234567890-0.123",
-    "timestamp": "2025-11-06T04:00:00.000Z",
-    ...
-  }
-}
-```
-
-#### GET `/api/telemetry`
-Query telemetry data with filters.
-
-**Query Parameters:**
-- `service`: Filter by service name
-- `limit`: Maximum number of results (default: 100)
-- `since`: ISO timestamp for filtering recent data
-
-**Response:**
-```json
-{
-  "data": [...],
-  "count": 100
-}
-```
-
-#### GET `/api/telemetry/stats`
-Get aggregated statistics.
-
-**Response:**
-```json
-{
-  "total_requests": 1234,
-  "avg_latency_ms": 245,
-  "error_rate": 0.12,
-  "active_services": 4
-}
-```
-
-#### GET `/api/telemetry/timeseries`
-Get time-series data for charting.
-
-**Query Parameters:**
-- `metric`: Metric type (latency, requests, errors)
-- `interval`: Time interval (1m, 5m, 1h)
-- `duration`: Duration in minutes (default: 60)
-
-### Service Health Endpoints
-
-#### GET `/api/services`
-Get health status of all services.
-
-**Response:**
-```json
-[
-  {
-    "service_name": "api-gateway",
-    "status": "healthy",
-    "uptime_percentage": 99.9,
-    "avg_latency_ms": 245,
-    "error_rate": 0.1,
-    "last_check": "2025-11-06T04:00:00.000Z"
-  }
-]
-```
-
-### Alert Endpoints
-
-#### GET `/api/alerts`
-Get all configured alerts.
-
-#### PUT `/api/alerts/:id`
-Update alert configuration.
-
-## 🧩 Key Components
-
-### Custom Hooks
-
-#### `useTelemetryData(updateInterval?: number)`
-Manages telemetry data with automatic updates.
-- Returns: `{ data, isUpdating }`
-- Default update interval: 5000ms
-
-### Type Definitions
-
-#### `TelemetryMetric`
-```typescript
-{
-  id: string;
-  timestamp: Date;
-  service_name: string;
-  endpoint: string;
-  method: string;
-  status_code: number;
-  latency_ms: number;
-  error_message?: string;
-}
-```
-
-#### `ServiceHealth`
-```typescript
-{
-  service_name: string;
-  status: "healthy" | "degraded" | "down";
-  uptime_percentage: number;
-  avg_latency_ms: number;
-  error_rate: number;
-  last_check: Date;
-}
-```
-
-## ⚙️ Configuration
-
-### Environment Variables
-Currently, the application uses mock data and doesn't require environment variables. For production deployment, consider adding:
-
-```env
-# .env.local
-NEXT_PUBLIC_API_URL=your-api-url
-DATABASE_URL=your-database-url
-```
-
-### Next.js Configuration
-Edit `next.config.mjs` to customize:
-- Image optimization
-- TypeScript settings
-- Build output configuration
-
-### Tailwind Configuration
-Customize theme, colors, and plugins in `tailwind.config.ts`.
+### Alert System
+Configurable alert management with:
+- Custom threshold settings
+- Severity levels (critical, warning, info)
+- Enable/disable functionality
+- Alert trigger history
 
 ## 🎨 Customization
 
-### Adding New Metrics
-1. Update the data structure in `useTelemetryData` hook (`hooks/use-telemetry-data.ts`)
-2. Add metric card in `app/page.tsx`
-3. Update mock data generation if needed
-
-### Creating New Charts
-1. Create a new component in `components/`
-2. Use Recharts components for visualization
-3. Import and add to the dashboard layout
-
-### Modifying Update Interval
-Change the interval in `app/page.tsx`:
+### Updating Refresh Interval
+Modify the update interval in `app/page.tsx`:
 ```typescript
-const { data, isUpdating } = useTelemetryData(10000) // 10 seconds
+const { data, isUpdating } = useTelemetryData(5000) // 5000ms = 5 seconds
 ```
 
-## 🧪 Development
+### Adding New Metrics
+1. Update the `TelemetryData` interface at the top of `hooks/use-telemetry-data.ts`
+2. Add metric generation logic in the `updateData` function (around line 103)
+3. Create or update components to display the new metrics
 
-### Linting
-```bash
-npm run lint
+### Theming
+The dashboard uses Tailwind CSS for styling. Customize colors and themes in:
+- `tailwind.config.ts` - Main theme configuration
+- `app/globals.css` - CSS variables and base styles
+
+## 🔌 API Integration
+
+The dashboard is designed to work with mock data by default. To integrate with real telemetry data:
+
+1. **Update API Routes**: Modify files in `app/api/` to connect to your backend services
+2. **Update Hook**: Replace mock data generation in `hooks/use-telemetry-data.ts` with API calls
+3. **Configure Endpoints**: Set up environment variables for API endpoints
+
+Example API integration:
+```typescript
+const fetchTelemetryData = async () => {
+  const response = await fetch('/api/telemetry')
+  return await response.json()
+}
 ```
 
-### Type Checking
-```bash
-npx tsc --noEmit
+## 📊 Data Types
+
+Key TypeScript interfaces:
+
+```typescript
+interface TelemetryData {
+  metrics: {
+    activeUsers: number
+    requestsPerMin: number
+    avgResponseTime: number
+    errorRate: number
+  }
+  systemStatus: "operational" | "degraded" | "down"
+  activities: Array<{
+    id: string
+    type: "info" | "warning" | "error" | "success"
+    message: string
+    timestamp: string
+  }>
+  performanceData: Array<{
+    time: string
+    cpu: number
+    memory: number
+    network: number
+  }>
+  timelineData: Array<{
+    time: string
+    responseTime: number
+    errorRate: number
+    throughput: number
+    cpu: number
+    memory: number
+  }>
+  lastUpdated: Date
+}
 ```
+
+See `hooks/use-telemetry-data.ts` and `lib/types.ts` for complete type definitions.
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
+Contributions are welcome! Here's how you can help:
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. **Fork the repository**
+2. **Create a feature branch**: `git checkout -b feature/amazing-feature`
+3. **Commit your changes**: `git commit -m 'Add amazing feature'`
+4. **Push to the branch**: `git push origin feature/amazing-feature`
+5. **Open a Pull Request**
 
-### Code Style
-- Follow TypeScript best practices
-- Use ESLint for code consistency
+### Development Guidelines
+- Follow the existing code style and conventions
 - Write meaningful commit messages
-- Add comments for complex logic
+- Update documentation for new features
+- Ensure TypeScript types are properly defined
+- Test your changes thoroughly
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is available for use under standard open-source practices. Please check the repository for specific license information.
 
 ## 🙏 Acknowledgments
 
 - Built with [Next.js](https://nextjs.org/)
-- UI components from [Radix UI](https://www.radix-ui.com/)
-- Charts powered by [Recharts](https://recharts.org/)
+- UI components from [shadcn/ui](https://ui.shadcn.com/)
 - Icons by [Lucide](https://lucide.dev/)
+- Charts powered by [Recharts](https://recharts.org/)
 
-## 📧 Contact
+## 📞 Support
 
-For questions or suggestions, please open an issue in the GitHub repository.
+For issues, questions, or suggestions:
+- Open an issue on GitHub
+- Check existing issues for solutions
+- Review the documentation
 
-## 🗺️ Roadmap
+## 🚧 Roadmap
 
-- [ ] Real database integration (PostgreSQL/MongoDB)
-- [ ] WebSocket support for true real-time updates
-- [ ] User authentication and authorization
-- [ ] Alert notification system (email, Slack, etc.)
+Future enhancements planned:
+- [ ] Historical data storage and analysis
+- [ ] User authentication and role-based access
+- [ ] Export data to CSV/PDF
+- [ ] Custom dashboard layouts
+- [ ] Multi-service monitoring
+- [ ] Integration with popular monitoring tools (Prometheus, Grafana, etc.)
+- [ ] Email/SMS alert notifications
 - [ ] Advanced filtering and search capabilities
-- [ ] Export data to CSV/JSON
-- [ ] Dark/Light theme toggle
-- [ ] Mobile app version
-- [ ] Multi-tenant support
-- [ ] Advanced analytics and reporting
 
 ---
 
-**Made with ❤️ for monitoring web services**
+**Built with ❤️ using Next.js and React**
